@@ -22,13 +22,17 @@ print(f"ascii letter at position #97: {ascii_letter}")
 
 # Your task is to encrypt this secret message into ciphertext
 plaintext = "This is a secret message."
-
+shift = 3
 # Initialize your ciphertext an empty string
 ciphertext = ""
 for character in plaintext:
     # do something to the character to encrypt it
-    # YOUR CODE HERE
-    encrypted_character = "a" # CHANGE THIS!
+    if character in alphabet:
+        index = alphabet.index(character)
+        new_index = (index + shift) % 26
+        encrypted_character = alphabet[new_index]
+    else:
+        encrypted_character = character
     ciphertext += encrypted_character
 
 print(f"{ciphertext = }")
